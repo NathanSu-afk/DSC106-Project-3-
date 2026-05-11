@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GHG-Forced Temperature Anomalies</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="main.js"></script>
+</head>
+
+<body>
+  <h1>Global Explorer of GHG-Forced Temperature Anomalies</h1>
+
+  <p class="subtitle">
+    This interactive visualization uses CMIP6 greenhouse-gas-only near-surface air temperature data.
+    The anomaly is calculated as the 2000–2014 modern average minus the 1850–1880 early industrial baseline.
+    Hovering over the map links each local anomaly to its latitude-level average.
+  </p>
+
+  <section class="visualization-layout">
+    <section class="card">
+      <h2>Global temperature anomaly map</h2>
+      <p>
+        Color bins show temperature anomaly in 0.5 K intervals. Hover over a grid cell to compare that local value
+        with the average anomaly at the same latitude.
+      </p>
+      <div id="map"></div>
+    </section>
+
+    <section class="card">
+      <h2>Linked latitude chart</h2>
+      <p>
+        The line shows average anomaly by latitude. The moving dots compare the hovered location
+        against the latitude average.
+      </p>
+      <div id="latitude-chart"></div>
+    </section>
+  </section>
+
+  <div id="tooltip" hidden></div>
+
+  <section class="writeup">
+    <h2>Write-up</h2>
+
+    <h3>Motivation</h3>
+    <p>
+      We wanted to understand how greenhouse-gas-only warming is distributed across the globe.
+      Our main question is: how does greenhouse-gas-forced warming vary by latitude, and where is the warming fingerprint strongest?
+    </p>
+
+    <h3>Data transformation</h3>
+    <p>
+      We used near-surface air temperature from the CMIP6 greenhouse-gas-only simulation.
+      We calculated temperature anomaly by subtracting the 1850–1880 baseline average from the 2000–2014 modern average.
+    </p>
+
+    <h3>Visual encoding</h3>
+    <p>
+      The main map uses longitude and latitude as position because the data is spatial.
+      Temperature anomaly is encoded using binned color categories instead of a continuous gradient.
+      We chose bins because they make the magnitude of warming easier to compare and avoid making tiny color differences seem more precise than they are.
+      Blue represents cooling or negative anomaly, while stronger red represents larger positive warming anomaly.
+    </p>
+
+    <h3>Interaction design</h3>
+    <p>
+      The main interaction is hover-based linking between the map and the latitude chart.
+      When the user hovers over a grid cell, the map shows the exact local anomaly, while the side chart highlights the corresponding latitude.
+      The chart also compares the hovered local value with the average anomaly at that latitude.
+      This makes the interaction useful because the reader can see whether a specific location is above or below the broader latitude-level pattern.
+    </p>
+
+    <h3>Alternatives considered</h3>
+    <p>
+      We considered using a time slider, but decided to focus on a modern-minus-baseline anomaly map because it directly answers our question and keeps the interaction focused.
+    </p>
+
+    <h3>Development process</h3>
+    <p>
+      We split the work into data preparation, exploratory analysis, D3 implementation, interaction design, styling, and writing.
+      The data preparation step involved using Python to isolate the greenhouse-gas-only simulation, calculate the 1850–1880 baseline, calculate the 2000–2014 modern average, and export a smaller CSV for D3.
+      The D3 step focused on building the binned anomaly map, the linked latitude chart, the tooltip, and the hover interaction.
+      The most time-consuming parts were preparing the climate data into a simple D3-ready format and making the linked interaction clear enough for a first-time user.
+    </p>
+  </section>
+</body>
+</html>

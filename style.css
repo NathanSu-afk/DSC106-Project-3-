@@ -1,0 +1,112 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+  line-height: 1.5;
+  background: #fafafa;
+}
+
+h1,
+h2 {
+  line-height: 1.1;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #555;
+  max-width: 1000px;
+}
+
+.visualization-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: white;
+  min-width: 0;
+}
+
+.card p {
+  color: #555;
+}
+
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#tooltip {
+  position: fixed;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  pointer-events: none;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+#tooltip[hidden] {
+  display: none;
+}
+
+#tooltip strong {
+  font-weight: 700;
+}
+
+.writeup {
+  margin-top: 2rem;
+  max-width: 900px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.writeup h3 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .visualization-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #777;
+}
+
+#latitude-chart svg {
+  margin-top: 0.5rem;
+}
