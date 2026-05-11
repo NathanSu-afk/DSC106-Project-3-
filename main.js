@@ -46,33 +46,23 @@ const latitudes = Array.from(latData, ([lat, avgAnomaly]) => ({
 
 const colorScale = d3
   .scaleThreshold()
-  .domain([0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5])
+  .domain([0, 1, 2, 3, 4])
   .range([
-    '#2166ac', // < 0
-    '#f7f7f7', // 0–0.5
-    '#fee5d9', // 0.5–1
-    '#fcbba1', // 1–1.5
-    '#fc9272', // 1.5–2
-    '#fb6a4a', // 2–2.5
-    '#ef3b2c', // 2.5–3
-    '#cb181d', // 3–3.5
-    '#a50f15', // 3.5–4
-    '#67000d', // 4–4.5
-    '#3f0008', // > 4.5
+    '#2166ac',
+    '#f7f7f7',
+    '#fddbc7',
+    '#f4a582',
+    '#d6604d',
+    '#b2182b',
   ]);
 
 const legendData = [
   { label: '< 0 K', color: '#2166ac' },
-  { label: '0–0.5 K', color: '#f7f7f7' },
-  { label: '0.5–1 K', color: '#fee5d9' },
-  { label: '1–1.5 K', color: '#fcbba1' },
-  { label: '1.5–2 K', color: '#fc9272' },
-  { label: '2–2.5 K', color: '#fb6a4a' },
-  { label: '2.5–3 K', color: '#ef3b2c' },
-  { label: '3–3.5 K', color: '#cb181d' },
-  { label: '3.5–4 K', color: '#a50f15' },
-  { label: '4–4.5 K', color: '#67000d' },
-  { label: '> 4.5 K', color: '#3f0008' },
+  { label: '0–1 K', color: '#f7f7f7' },
+  { label: '1–2 K', color: '#fddbc7' },
+  { label: '2–3 K', color: '#f4a582' },
+  { label: '3–4 K', color: '#d6604d' },
+  { label: '> 4 K', color: '#b2182b' },
 ];
 
 /* ------------------------------------------------------
