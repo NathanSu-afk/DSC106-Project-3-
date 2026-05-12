@@ -124,7 +124,7 @@ mapSvg
   .attr('height', mapHeight - mapMargin.top - mapMargin.bottom)
   .attr('fill', '#eef3f7');
 
-// Temperature anomaly grid.
+// Temperature change grid.
 const mapCells = mapSvg
   .append('g')
   .selectAll('rect')
@@ -201,7 +201,7 @@ const legend = d3
   .append('div')
   .attr('class', 'map-legend');
 
-legend.append('strong').text('Temperature anomaly bins:');
+legend.append('strong').text('Temperature change bins:');
 
 const legendItems = legend
   .selectAll('span.legend-item')
@@ -256,7 +256,7 @@ chartSvg
   .attr('y', chartHeight - 10)
   .attr('text-anchor', 'middle')
   .attr('font-size', 12)
-  .text('Temperature anomaly (K)');
+  .text('Temperature change (K)');
 
 chartSvg
   .append('text')
@@ -273,7 +273,7 @@ chartSvg
   .attr('y', 22)
   .attr('font-size', 12)
   .attr('font-weight', 'bold')
-  .text('Average anomaly by latitude');
+  .text('Average temperature change by latitude');
 
 const line = d3
   .line()
@@ -343,7 +343,7 @@ mapCells
         <strong>Hovered location</strong><br>
         Latitude: ${d.lat.toFixed(1)}°<br>
         Longitude: ${d.lon.toFixed(1)}°<br>
-        Local anomaly: ${formatAnomaly(d.anomaly)} K<br>
+        Local temperature change: ${formatAnomaly(d.anomaly)} K<br>
         Latitude average: ${formatAnomaly(hoveredLatAvg)} K<br>
         Difference from latitude avg: ${formatAnomaly(difference)} K
       `);
