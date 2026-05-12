@@ -46,7 +46,7 @@ const latitudes = Array.from(latData, ([lat, avgAnomaly]) => ({
 
 const colorScale = d3
   .scaleThreshold()
-  .domain([0, 1, 2, 3, 4])
+  .domain([0, 0.75, 1.5, 2.25, 3, 3.75])
   .range([
     '#2166ac',
     '#f7f7f7',
@@ -54,15 +54,17 @@ const colorScale = d3
     '#f4a582',
     '#d6604d',
     '#b2182b',
+    '#67001f',
   ]);
 
 const legendData = [
   { label: '< 0 K', color: '#2166ac' },
-  { label: '0–1 K', color: '#f7f7f7' },
-  { label: '1–2 K', color: '#fddbc7' },
-  { label: '2–3 K', color: '#f4a582' },
-  { label: '3–4 K', color: '#d6604d' },
-  { label: '> 4 K', color: '#b2182b' },
+  { label: '0–0.75 K', color: '#f7f7f7' },
+  { label: '0.75–1.5 K', color: '#fddbc7' },
+  { label: '1.5–2.25 K', color: '#f4a582' },
+  { label: '2.25–3 K', color: '#d6604d' },
+  { label: '3–3.75 K', color: '#b2182b' },
+  { label: '> 3.75 K', color: '#67001f' },
 ];
 
 /* ------------------------------------------------------
